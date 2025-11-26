@@ -39,7 +39,7 @@ function inject(questions) {
   );
 }
 
-questions.forEach((question) => inject(question));
+questions.forEach((questions) => inject(questions));
 
 function filterById(id) {
   const cards = document.querySelectorAll(".card");
