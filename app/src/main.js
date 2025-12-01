@@ -34,7 +34,7 @@ function inject(questions) {
     `<div class="card" data-name = "${questions.question}" data-id = "${questions.id}">
       <h2 class="name">${questions.question}</h2>
       <h2 class="choices">$${questions.choices}</h2>
-      <button class="button">Buy Product</button>
+      <button class="button">Submit</button>
     </div>`
   );
 }
