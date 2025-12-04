@@ -64,7 +64,7 @@ function filterButton() {
 
 filterButton();
 filterById("All");
-
+inject(questions);
 
 //Fuction for the current question and only desplays 1 question at a time
 //Get the amount of right answers and divide by the total amount
