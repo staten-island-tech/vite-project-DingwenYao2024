@@ -1,26 +1,106 @@
-import './style.css'
+import "./style.css";
 
 const questions = [
-  { id: "Math", question: "What is 1 + 1?", choices: ["1", "2", "3", "4"], answer: "2"},
-  { id: "Math", question: "What is 5 - 2?", choices: ["1", "3", "5", "7"], answer: "3"},
-  { id: "Math", question: "Which number is bigger?", choices: ["10", "2", "1", "0"], answer: "10"},
-  { id: "Math", question: "What is 3 + 0?", choices: ["1", "3", "5", "9"], answer: "3"},
-  { id: "Math", question: "What shape is a ball?", choices: ["Circle", "Square", "Triangle", "Star"], answer: "Circle"},
-  { id: "Science", question: "What planet do we live on?", choices: ["Earth", "Mars", "Jupiter", "Moon"], answer: "Earth"},
-  { id: "Science", question: "Which one is hot?", choices: ["Fire", "Ice", "Snow", "Rain"], answer: "Fire"},
-  { id: "Science", question: "What do plants need to grow?", choices: ["Water", "Rocks", "Plastic", "Sand"], answer: "Water"},
-  { id: "Science", question: "Which animal can fly?", choices: ["Bird", "Dog", "Cow", "Snake"], answer: "Bird"},
-  { id: "Science", question: "What do humans breathe?", choices: ["Air", "Milk", "Juice", "Dust"], answer: "Air"},
-  { id: "English", question: "Which one is a color?", choices: ["Red", "Phone", "Cloud", "Chair"], answer: "Red"},
-  { id: "English", question: "What letter comes after A?", choices: ["B", "C", "D", "E"], answer: "B"},
-  { id: "English", question: "Which word is an animal?", choices: ["Dog", "Desk", "Door", "Dirt"], answer: "Dog"},
-  { id: "English", question: "Which one is a vowel?", choices: ["A", "B", "C", "F"], answer: "A"},
-  { id: "English", question: "Which one is something you read?", choices: ["Book", "Shoe", "Plate", "Ball"], answer: "Book"},
-  { id: "History", question: "What continent is the USA on?", choices: ["North America", "Asia", "Europe", "Africa"], answer: "North America"},
-  { id: "History", question: "Who were the first people to live in America?", choices: ["Native Americans", "Pilgrims", "Vikings", "Romans"], answer: "Native Americans"},
-  { id: "History", question: "What do people celebrate on the 4th of July?", choices: ["Independence Day", "Halloween", "Christmas", "Easter"], answer: "Independence day"},
-  { id: "History", question: "Which one is an old building?", choices: ["Pyramid", "Skyscraper", "Mall", "Stadium"], answer: "Pyramid"},
-  { id: "History", question: "Who was the first president of the U.S.?", choices: ["George Washington", "Abraham Lincoln", "Joe Biden", "Thomas Jefferson"], answer: "George Washington"}
+  {
+    id: "Math",
+    question: "What is 1 + 1?",
+    answer: "2",
+  },
+  {
+    id: "Math",
+    question: "What is 5 - 2?",
+    answer: "3",
+  },
+  {
+    id: "Math",
+    question: "What is the number before 10?",
+    answer: "9",
+  },
+  {
+    id: "Math",
+    question: "What is 3 + 0?",
+    answer: "3",
+  },
+  {
+    id: "Math",
+    question: "What shape is a ball?",
+    answer: "Sphere",
+  },
+  {
+    id: "Science",
+    question: "What planet do we live on?",
+    answer: "Earth",
+  },
+  {
+    id: "Science",
+    question: "What element is hot?",
+    answer: "Fire",
+  },
+  {
+    id: "Science",
+    question: "What do plants need to grow?",
+    answer: "Food and water",
+  },
+  {
+    id: "Science",
+    question: "What animal can fly?",
+    answer: "Bird",
+  },
+  {
+    id: "Science",
+    question: "What do humans breathe?",
+    answer: "Air",
+  },
+  {
+    id: "English",
+    question: "What is the most used primary color?",
+    answer: "Blue",
+  },
+  {
+    id: "English",
+    question: "What letter comes after A?",
+    answer: "B",
+  },
+  {
+    id: "English",
+    question: "What animal barks?",
+    answer: "Dog",
+  },
+  {
+    id: "English",
+    question: "What is the most used vowel?",
+    answer: "E",
+  },
+  {
+    id: "English",
+    question: "Who wrote Romeo and Juliet?",
+    answer: "William Shakespeare",
+  },
+  {
+    id: "History",
+    question: "What continent is the USA on?",
+    answer: "North America",
+  },
+  {
+    id: "History",
+    question: "Who were the first people to live in America?",
+    answer: "Native Americans",
+  },
+  {
+    id: "History",
+    question: "What do people celebrate on the 4th of July?",
+    answer: "Independence day",
+  },
+  {
+    id: "History",
+    question: "What year was the declaration of independence signed?",
+    answer: "1776",
+  },
+  {
+    id: "History",
+    question: "Who was the first president of the U.S.?",
+    answer: "George Washington",
+  },
 ];
 
 console.log(questions);
@@ -33,7 +113,7 @@ function inject(questions) {
     "afterbegin",
     `<div class="card" data-name = "${questions.question}" data-id = "${questions.id}">
       <h2 class="name">${questions.question}</h2>
-      <h2 class="choices">$${questions.choices}</h2>
+      <input placeholder="Put answer here" class="input">
       <button class="button">Submit</button>
     </div>`
   );
@@ -41,10 +121,13 @@ function inject(questions) {
 
 questions.forEach((questions) => inject(questions));
 
+//Be able to filter by subject
+
 function filterById(id) {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card) => {
     const cardCategory = card.getAttribute("data-id");
+    console.log(cardCategory)
     if (cardCategory === id || id === "All") {
       card.style.display = "";
     } else {
@@ -57,6 +140,7 @@ function filterButton() {
   document.querySelectorAll(".filter-button").forEach((button) => {
     button.addEventListener("click", (event) => {
       const id = event.target.getAttribute("data-id");
+      console.log(id)
       filterById(id);
     });
   });
@@ -64,10 +148,8 @@ function filterButton() {
 
 filterButton();
 filterById("All");
-inject(questions);
 
-//Fuction for the current question and only desplays 1 question at a time
-//Get the amount of right answers and divide by the total amount
-//Be able to filter by subject
+
 //If they get the answer wrong, red
 //If they get the answer right, green
+//Get the amount of right answers and divide by the total amount
