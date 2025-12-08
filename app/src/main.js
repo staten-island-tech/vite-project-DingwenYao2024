@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import "./style.css";
 
 const questions = [
@@ -149,7 +150,7 @@ function filterButton() {
 filterButton();
 filterById("All");
 
-
+//light/dark mode
 //If they get the answer wrong, red
 //If they get the answer right, green
 //Get the amount of right answers and divide by the total amount

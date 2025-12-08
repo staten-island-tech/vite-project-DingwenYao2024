@@ -58,6 +58,12 @@ html {
   background-color: rgb(18, 219, 255);
 }
 
+.theme-button {
+  width: 290px;
+  padding: 10px;
+  background-color: rgb(18, 219, 255);
+}
+
 button {
   background-color: rgb(31, 207, 54);
   margin: 40px;
