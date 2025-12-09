@@ -69,6 +69,7 @@ button {
   margin: 40px;
   height: 50px;
   width: 70px;
+  cursor: pointer;
 }
 
 button:hover {
@@ -90,4 +91,35 @@ button:hover {
   .container {
     flex-direction: column;
   }
+}
+
+
+:root {
+  --white: #ffffff;
+  --darker-white: #b4b4b4;
+  --grey: #797979;
+  --darker-grey: #414040;
+
+  /* Intentions */
+  --primary: var(--white);
+  --secondary: var(--darker-white);
+}
+
+.light {
+  --primary: var(--white);
+  --secondary: var(--darker-white);
+}
+
+.dark {
+  --primary: var(--grey);
+  --secondary: var(--darker-grey);
+}
+
+.hero {
+  background-color: var(--primary);
+}
+
+.main {
+  background-color: var(--secondary);
+  height: 90vh;
 }

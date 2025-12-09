@@ -151,7 +151,14 @@ filterById("All");
 
 //light/dark mode
 
-function themeButton() {}
+document.querySelector(".filter-button").addEventListener("click", function () {
+  if (document.body.classList.contains("light")) {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.add("light");
+    document.body.classList.remove("dark");
+  }
+});
 
 //If they get the answer wrong, red
 //If they get the answer right, green
