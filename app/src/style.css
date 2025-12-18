@@ -44,6 +44,11 @@ html {
   font-style: normal;
 }
 
+body {
+  background-color: var(--primary);
+  color: black;
+}
+
 .img {
   display: flex;
   width: 100%;
@@ -84,6 +89,21 @@ button:hover {
   background-color: rgb(97, 97, 97);
 }
 
+.score{
+  text-align: center;
+  font-size: 70px;
+  color: green;
+}
+
+.dark .card {
+  border-color: white;
+}
+
+.card {
+  background-color: var(--secondary);
+  border: 10px solid black;
+}
+
 @media screen and (max-width: 800px) {
   .card {
     width: 100%;
@@ -96,7 +116,6 @@ button:hover {
 
 :root {
   --white: #ffffff;
-  --darker-white: #b4b4b4;
   --grey: #797979;
   --darker-grey: #414040;
 
@@ -106,14 +125,18 @@ button:hover {
 }
 
 .light {
-  --primary: var(--white);
-  --secondary: var(--darker-white);
+  --primary: #ffffff;
+  --secondary: #f0f0f0;
+  color: black;
 }
 
+
 .dark {
-  --primary: var(--grey);
-  --secondary: var(--darker-grey);
+  --primary: #414040;
+  --secondary: #1e1e1e;
+  color: white;
 }
+
 
 .hero {
   background-color: var(--primary);
