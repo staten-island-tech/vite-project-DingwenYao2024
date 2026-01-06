@@ -157,6 +157,7 @@ filterButton();
 filterById("All");
 
 //light/dark mode
+
 const themeButton = document.querySelector(".theme-button");
 
 themeButton.addEventListener("click", () => {
